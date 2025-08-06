@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brawex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2bb8ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main diamond shape -->
+  <path d="M16 2 L28 10 L16 18 L4 10 Z" fill="url(#brawex-gradient)" />
+  
+  <!-- Lower diamond -->
+  <path d="M16 14 L24 20 L16 26 L8 20 Z" fill="url(#brawex-gradient)" opacity="0.8" />
+  
+  <!-- Smallest diamond -->
+  <path d="M16 20 L20 22 L16 24 L12 22 Z" fill="url(#brawex-gradient)" opacity="0.6" />
+</svg>
