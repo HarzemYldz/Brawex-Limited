@@ -140,7 +140,7 @@ brawex-limited/
 
 Both directors bring extensive experience in construction management and technical operations, ensuring comprehensive project delivery from inception to completion.
 
-## 🌐 Deployment
+<!-- ## 🌐 Deployment
 
 The website is optimized for deployment on modern hosting platforms:
 
@@ -170,7 +170,7 @@ The website is optimized for deployment on modern hosting platforms:
 
 ## 🤝 Contributing
 
-This is a private commercial website for Brawex Limited. For business inquiries or technical support, please contact us through the official channels listed above.
+This is a private commercial website for Brawex Limited. For business inquiries or technical support, please contact us through the official channels listed above. -->
 
 ## 📄 License
 
