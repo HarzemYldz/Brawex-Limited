@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Specific directives for Google bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific directives for Bing bot  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block access to sensitive areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Disallow: /src/
+
+# Allow access to important files
+Allow: /img/
+Allow: /favicon.ico
+Allow: /.well-known/
+
+# Sitemap location
+Sitemap: https://www.brawex.co.uk/sitemap.xml
+
+# Host directive
+Host: https://www.brawex.co.uk

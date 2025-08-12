@@ -1,0 +1,28 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    Founding Directors -- Mutluer Bali, Sinan Girgin
+    Contact: contact@brawex.co.uk
+    Twitter: @brawexlimited
+    Location: London, England
+
+# THANKS
+    Construction Industry Partners
+    Local Community in North London
+    Professional Development Teams
+
+# TECHNOLOGY COLOPHON
+    HTML5, CSS3, JavaScript
+    React.js, Vite
+    TailwindCSS, Framer Motion
+    Standards: HTML5, CSS3, ES6+
+    Components: React Hooks, Context API
+    IDE: Visual Studio Code, Cursor AI
+    Version Control: Git
+    
+# SITE
+    Last Update: 2024/12/15
+    Languages: English (en-GB)
+    Doctype: HTML5
+    Standards: W3C Valid, WCAG 2.1 AA

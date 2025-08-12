@@ -22,7 +22,8 @@ const Footer = () => {
 
   const companyInfo = {
     phone: '+44 20 8XXX XXXX',
-    email: 'info@brawex.co.uk',
+    email: 'contact@brawex.co.uk',
+    website: 'https://www.brawex.co.uk',
     address: '61 Woodstock Crescent, London, N9 7NB, England',
     companyNumber: 'Company No: 16456830',
     hours: 'Mon - Fri: 9:00 AM - 5:00 PM'
@@ -145,10 +146,13 @@ const Footer = () => {
                     <Phone className="w-4 h-4" />
                     <span className="text-sm">{companyInfo.phone}</span>
                   </div>
-                  <div className="flex items-center space-x-3 text-neutral-soft-600 dark:text-white/70 hover:text-brawex-600 dark:hover:text-brawex-300 transition-colors">
-                    <Mail className="w-4 h-4" />
+                  <a 
+                    href={`mailto:${companyInfo.email}`}
+                    className="flex items-center space-x-3 text-neutral-soft-600 dark:text-white/70 hover:text-brawex-600 dark:hover:text-brawex-300 transition-colors group"
+                  >
+                    <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                     <span className="text-sm">{companyInfo.email}</span>
-                  </div>
+                  </a>
                   <div className="flex items-start space-x-3 text-neutral-soft-600 dark:text-white/70 hover:text-brawex-600 dark:hover:text-brawex-300 transition-colors">
                     <MapPin className="w-4 h-4 mt-0.5" />
                     <span className="text-sm">{companyInfo.address}</span>
