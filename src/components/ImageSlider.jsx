@@ -69,11 +69,11 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
         </AnimatePresence>
 
         {/* Navigation arrows */}
-        <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 flex items-center justify-between px-4 z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
           <button
             onClick={goToPrevious}
             className="
-              w-12 h-12 rounded-full
+              w-14 h-14 md:w-12 md:h-12 rounded-full
               bg-slate-800/80 dark:bg-black/30 backdrop-blur-md
               border-2 border-slate-700/80 dark:border-white/30
               flex items-center justify-center
@@ -93,7 +93,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
           <button
             onClick={goToNext}
             className="
-              w-12 h-12 rounded-full
+              w-14 h-14 md:w-12 md:h-12 rounded-full
               bg-slate-800/80 dark:bg-black/30 backdrop-blur-md
               border-2 border-slate-700/80 dark:border-white/30
               flex items-center justify-center
@@ -116,8 +116,8 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
           <button
             onClick={togglePlayPause}
             className="
-              absolute top-4 right-4
-              w-10 h-10 rounded-full
+              absolute top-4 right-4 z-40
+              w-12 h-12 md:w-10 md:h-10 rounded-full
               bg-slate-800/80 dark:bg-black/30 backdrop-blur-md
               border-2 border-slate-700/80 dark:border-white/30
               flex items-center justify-center
@@ -126,7 +126,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
               hover:scale-110 hover:shadow-xl
               shadow-lg shadow-slate-900/50
               transition-all duration-300 ease-in-out
-              opacity-0 group-hover:opacity-100
+              opacity-100 md:opacity-0 md:group-hover:opacity-100
               focus:outline-none focus:ring-2 focus:ring-brawex-400/50
               group/play
             "
@@ -141,7 +141,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
 
         {/* Image info overlay */}
         {images[currentIndex].title && (
-          <div className="absolute bottom-0 left-0 right-0 p-6">
+          <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 z-10">
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -150,16 +150,17 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
                 bg-slate-900/85 dark:bg-black/60
                 backdrop-blur-lg
                 rounded-xl
-                p-6
+                p-4 md:p-6
                 border-2 border-slate-700/60 dark:border-white/20
                 shadow-xl shadow-slate-900/60
+                mb-12 md:mb-0
               "
             >
-              <h3 className="text-xl font-semibold text-white mb-2 drop-shadow-lg">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-2 drop-shadow-lg">
                 {images[currentIndex].title}
               </h3>
               {images[currentIndex].description && (
-                <p className="text-white/95 drop-shadow-md leading-relaxed">
+                <p className="text-sm md:text-base text-white/95 drop-shadow-md leading-relaxed">
                   {images[currentIndex].description}
                 </p>
               )}
@@ -170,7 +171,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
 
       {/* Dots indicator */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
           {images.map((_, index) => (
             <button
               key={index}
@@ -191,7 +192,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
 
       {/* Progress bar */}
       {isPlaying && images.length > 1 && (
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20">
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 z-20">
           <motion.div
             className="h-full bg-brawex-400"
             initial={{ width: '0%' }}

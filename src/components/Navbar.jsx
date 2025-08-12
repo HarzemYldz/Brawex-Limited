@@ -60,10 +60,10 @@ const Navbar = () => {
           }
         `}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className={`
             flex items-center justify-between transition-all duration-500
-            ${isScrolled ? 'h-30' : 'h-35'}
+            ${isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'}
           `}>
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -82,7 +82,10 @@ const Navbar = () => {
                   alt="Brawex Limited Logo" 
                   className={`
                     object-contain transition-all duration-500 ease-in-out
-                    ${isScrolled ? 'w-60 h-20' : 'w-68 h-24'}
+                    ${isScrolled 
+                      ? 'w-36 h-12 sm:w-52 sm:h-16 md:w-60 md:h-20' 
+                      : 'w-40 h-14 sm:w-56 sm:h-18 md:w-68 md:h-24'
+                    }
                     group-hover:scale-105 group-hover:drop-shadow-lg
                   `}
                 />
@@ -133,16 +136,18 @@ const Navbar = () => {
           </div>
 
           {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-3">
-            <ThemeToggle />
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="flex-shrink-0">
+              <ThemeToggle />
+            </div>
             
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex-shrink-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="
                   glass-button
-                  w-10 h-10
+                  w-9 h-9 sm:w-10 sm:h-10
                   flex items-center justify-center
                   transition-all duration-300 ease-in-out
                 "
@@ -156,9 +161,9 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     {isMenuOpen ? (
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4 sm:w-5 sm:h-5" />
                     ) : (
-                      <Menu className="w-5 h-5" />
+                      <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
                     )}
                   </motion.div>
                 </AnimatePresence>
@@ -177,7 +182,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div className="px-3 pt-3 pb-4 space-y-2 sm:px-4">
                 {navigation.map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -194,7 +199,7 @@ const Navbar = () => {
                       className="
                         relative
                         w-full
-                        px-4 py-3 rounded-lg
+                        px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg
                         text-left
                         flex items-center space-x-3
                         transition-all duration-300 ease-in-out
@@ -209,8 +214,8 @@ const Navbar = () => {
                         shadow-sm hover:shadow-md
                       "
                     >
-                      <Icon className="w-5 h-5 transition-all duration-300 group-hover:scale-105" />
-                      <span className="font-medium">{item.name}</span>
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:scale-105" />
+                      <span className="font-medium text-sm sm:text-base">{item.name}</span>
                     </motion.a>
                   );
                 })}
