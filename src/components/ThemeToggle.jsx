@@ -1,9 +1,11 @@
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../config/theme.jsx';
+import { useLanguage } from '../context/LanguageContext';
 
 const ThemeToggle = ({ className = '' }) => {
   const { theme, toggleTheme, isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <button
@@ -23,8 +25,8 @@ const ThemeToggle = ({ className = '' }) => {
         ${isDark ? 'hover:shadow-blue-500/30' : 'hover:shadow-orange-300/40'}
         ${className}
       `}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      aria-label={t('common.toggleTheme', `Switch to ${isDark ? 'light' : 'dark'} mode`)}
+      title={t('common.toggleTheme', `Switch to ${isDark ? 'light' : 'dark'} mode`)}
     >
       {/* Track background effects */}
       <div className={`

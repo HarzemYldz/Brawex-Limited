@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Home, Info, Users, Briefcase, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   // Handle scroll effect
   useEffect(() => {
@@ -18,11 +21,11 @@ const Navbar = () => {
   }, []);
 
   const navigation = [
-    { name: 'Home', href: '#home', icon: Home },
-    { name: 'About', href: '#about', icon: Info },
-    { name: 'Management', href: '#management', icon: Users },
-    { name: 'Projects', href: '#projects', icon: Briefcase },
-    { name: 'Contact', href: '#contact', icon: Mail },
+    { name: t('nav.home'), href: '#home', icon: Home },
+    { name: t('nav.about'), href: '#about', icon: Info },
+    { name: t('nav.management'), href: '#management', icon: Users },
+    { name: t('nav.projects'), href: '#projects', icon: Briefcase },
+    { name: t('nav.contact'), href: '#contact', icon: Mail },
   ];
 
   const handleNavClick = (href) => {
@@ -55,15 +58,15 @@ const Navbar = () => {
           backdrop-blur-lg
           border
           ${isScrolled 
-            ? 'bg-neutral-soft-50/95 dark:bg-slate-900/95 shadow-2xl shadow-neutral-soft-300/30 dark:shadow-brawex-900/50 border-neutral-soft-200/40 dark:border-brawex-700/30 rounded-2xl mx-auto max-w-6xl' 
-            : 'bg-neutral-soft-50/90 dark:bg-white/5 shadow-lg border-neutral-soft-200/60 dark:border-white/10 rounded-none w-full'
+            ? 'bg-ocean-50/95 dark:bg-slate-900/95 shadow-2xl shadow-ocean-200/30 dark:shadow-brawex-900/50 border-ocean-200/40 dark:border-brawex-700/30 rounded-2xl mx-auto max-w-6xl' 
+            : 'bg-ocean-50/90 dark:bg-white/5 shadow-lg border-ocean-200/60 dark:border-white/10 rounded-none w-full'
           }
         `}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className={`
             flex items-center justify-between transition-all duration-500
-            ${isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'}
+            ${isScrolled ? 'h-18 sm:h-20 md:h-22 lg:h-24' : 'h-20 sm:h-22 md:h-24 lg:h-30'}
           `}>
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -83,8 +86,8 @@ const Navbar = () => {
                   className={`
                     object-contain transition-all duration-500 ease-in-out
                     ${isScrolled 
-                      ? 'w-36 h-12 sm:w-52 sm:h-16 md:w-60 md:h-20' 
-                      : 'w-40 h-14 sm:w-56 sm:h-18 md:w-68 md:h-24'
+                      ? 'w-40 h-15 sm:w-45 sm:h-18 md:w-50 md:h-20 lg:w-45 lg:h-22' 
+                      : 'w-40 h-16 sm:w-52 sm:h-20 md:w-56 md:h-22 lg:w-55 lg:h-28'
                     }
                     group-hover:scale-105 group-hover:drop-shadow-lg
                   `}
@@ -109,17 +112,17 @@ const Navbar = () => {
                     }}
                     className="
                       relative
-                      px-4 py-2.5 rounded-lg
-                      text-sm font-medium
-                      flex items-center space-x-2
+                      px-3 py-2 rounded-lg
+                      text-xs sm:text-sm font-medium
+                      flex items-center space-x-1.5
                       transition-all duration-300 ease-in-out
-                      text-slate-700 dark:text-slate-300
-                      hover:text-brawex-600 dark:hover:text-brawex-400
+                      text-ocean-600 dark:text-slate-300
+                      hover:text-ocean-500 dark:hover:text-brawex-400
                       group
                     "
                   >
                     {/* Subtle background */}
-                    <div className="absolute inset-0 bg-neutral-soft-100 dark:bg-brawex-900/20 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
+                    <div className="absolute inset-0 bg-ocean-100 dark:bg-brawex-900/20 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
                     
                     {/* Content */}
                     <div className="relative z-10 flex items-center space-x-2">
@@ -135,8 +138,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Language Selector, Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Desktop Language Selector */}
+            <div className="hidden md:flex flex-shrink-0">
+              <LanguageSelector />
+            </div>
+            
             <div className="flex-shrink-0">
               <ThemeToggle />
             </div>
@@ -203,14 +211,14 @@ const Navbar = () => {
                         text-left
                         flex items-center space-x-3
                         transition-all duration-300 ease-in-out
-                        text-slate-700 dark:text-slate-300
-                        hover:text-brawex-600 dark:hover:text-brawex-400
+                        text-ocean-600 dark:text-slate-300
+                        hover:text-ocean-500 dark:hover:text-brawex-400
                         group
-                        bg-neutral-soft-50/90 dark:bg-slate-800/80
-                        hover:bg-neutral-soft-100 dark:hover:bg-brawex-900/30
+                        bg-ocean-50/90 dark:bg-slate-800/80
+                        hover:bg-ocean-100 dark:hover:bg-brawex-900/30
                         backdrop-blur-sm
-                        border border-slate-200/50 dark:border-slate-700/50
-                        hover:border-brawex-300/50 dark:hover:border-brawex-600/50
+                        border border-ocean-200/50 dark:border-slate-700/50
+                        hover:border-ocean-300/70 dark:hover:border-brawex-600/50
                         shadow-sm hover:shadow-md
                       "
                     >
@@ -219,6 +227,16 @@ const Navbar = () => {
                     </motion.a>
                   );
                 })}
+                
+                {/* Mobile Language Selector */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navigation.length * 0.1, duration: 0.3 }}
+                  className="border-t border-ocean-200/50 dark:border-slate-700/50 pt-4 mt-4"
+                >
+                  <LanguageSelector isMobile={true} />
+                </motion.div>
               </div>
             </motion.div>
           )}

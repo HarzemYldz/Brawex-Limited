@@ -1,0 +1,66 @@
+{
+  "name": "Brawex Limited - Professional Construction Company",
+  "short_name": "Brawex Limited",
+  "description": "Professional construction services in London - Commercial & domestic building, installation & consultancy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "categories": ["business", "construction", "services"],
+  "icons": [
+    {
+      "src": "/img/favicon.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon.png", 
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon.png",
+      "sizes": "192x192", 
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/favicon.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with Brawex Limited",
+      "url": "/#contact",
+      "icons": [{ "src": "/img/favicon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Our Services", 
+      "short_name": "Services",
+      "description": "View our construction services",
+      "url": "/#services",
+      "icons": [{ "src": "/img/favicon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Management Team",
+      "short_name": "Team", 
+      "description": "Meet our founding directors",
+      "url": "/#management",
+      "icons": [{ "src": "/img/favicon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

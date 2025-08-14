@@ -20,36 +20,36 @@
 }
 
 @layer components {
-  /* Glassmorphism base styles */
+  /* Glassmorphism base styles - Ocean Theme */
   .glass {
-    @apply bg-white/60 dark:bg-white/5;
+    @apply bg-ocean-50/80 dark:bg-white/5;
     @apply backdrop-blur-md;
     @apply rounded-xl;
-    @apply shadow-lg shadow-neutral-soft-200/40 dark:shadow-black/40;
-    @apply border border-neutral-soft-200/60 dark:border-white/10;
+    @apply shadow-lg shadow-ocean-200/30 dark:shadow-black/40;
+    @apply border border-ocean-200/50 dark:border-white/10;
   }
 
   .glass-card {
     @apply glass;
     @apply p-6;
     @apply transition-all duration-300 ease-in-out;
-    @apply hover:bg-white/75 dark:hover:bg-white/10;
-    @apply hover:shadow-xl hover:shadow-neutral-soft-300/40 dark:hover:shadow-brawex-900/30;
+    @apply hover:bg-ocean-100/85 dark:hover:bg-white/10;
+    @apply hover:shadow-xl hover:shadow-ocean-300/25 dark:hover:shadow-brawex-900/30;
     @apply hover:scale-[1.02];
-    @apply hover:border-brawex-200/40 dark:hover:border-white/20;
+    @apply hover:border-ocean-300/60 dark:hover:border-white/20;
   }
 
   .glass-button {
     @apply glass;
     @apply px-6 py-3;
     @apply transition-all duration-300 ease-in-out;
-    @apply hover:bg-white/80 dark:hover:bg-white/15;
-    @apply hover:shadow-lg hover:shadow-neutral-soft-300/50 dark:hover:shadow-brawex-900/40;
+    @apply hover:bg-ocean-100/90 dark:hover:bg-white/15;
+    @apply hover:shadow-lg hover:shadow-ocean-300/40 dark:hover:shadow-brawex-900/40;
     @apply hover:scale-105;
     @apply active:scale-95;
     @apply cursor-pointer;
     @apply font-medium;
-    @apply hover:border-brawex-200/50 dark:hover:border-white/20;
+    @apply hover:border-ocean-300/70 dark:hover:border-white/20;
     @apply text-light-text dark:text-dark-text;
   }
 
@@ -95,14 +95,15 @@
       radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
   }
 
-  /* Gradient backgrounds */
+  /* Gradient backgrounds - Ocean Theme */
   .gradient-bg {
     background: linear-gradient(135deg, 
-      #f7f9fc 0%, 
-      #f1f5f9 25%,
-      #e8f2f7 50%,
-      #f0f6fc 75%,
-      #f4f8fc 100%);
+      #f0feff 0%,     /* Ocean-50 */
+      #e0fcff 20%,    /* Ocean-100 */
+      #96D2D9 40%,    /* Ocean-200 */
+      #3FA8BF 60%,    /* Ocean-300 */
+      #03738C 80%,    /* Ocean-400 */
+      #025373 100%);  /* Ocean-500 */
   }
 
   .dark .gradient-bg {
@@ -112,13 +113,13 @@
       rgba(8, 145, 178, 0.05) 100%);
   }
   
-  /* Soft overlay for light mode */
+  /* Soft overlay for light mode - Ocean Theme */
   .soft-overlay {
     background: linear-gradient(45deg,
-      rgba(239, 249, 255, 0.3) 0%,
-      rgba(219, 242, 255, 0.2) 25%,
-      rgba(184, 232, 255, 0.1) 50%,
-      rgba(219, 242, 255, 0.2) 75%,
-      rgba(239, 249, 255, 0.3) 100%);
+      rgba(240, 254, 255, 0.6) 0%,   /* Ocean-50 with opacity */
+      rgba(224, 252, 255, 0.4) 25%,  /* Ocean-100 with opacity */
+      rgba(150, 210, 217, 0.2) 50%,  /* Ocean-200 with opacity */
+      rgba(224, 252, 255, 0.4) 75%,  /* Ocean-100 with opacity */
+      rgba(240, 254, 255, 0.6) 100%); /* Ocean-50 with opacity */
   }
 }

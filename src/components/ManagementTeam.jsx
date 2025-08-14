@@ -9,12 +9,15 @@ import {
   Phone,
   Linkedin
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const ManagementTeam = () => {
+  const { t } = useLanguage();
+  
   const boardMembers = [
     {
       name: "Mutluer Bali",
-      position: "Director & Co-Founder",
+      position: t('management.position'),
       nationality: "British",
       born: "April 1978",
       specialization: "Construction Management & Business Development",
@@ -30,7 +33,7 @@ const ManagementTeam = () => {
     },
     {
       name: "Sinan Girgin",
-      position: "Director & Co-Founder", 
+      position: t('management.position'), 
       nationality: "Turkish",
       born: "December 1978",
       specialization: "Technical Operations & Project Management",
@@ -90,12 +93,11 @@ const ManagementTeam = () => {
               <Users className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-4xl font-display font-bold bg-gradient-to-r from-brawex-600 to-brawex-400 bg-clip-text text-transparent">
-              Founding Directors
+              {t('management.title')}
             </h2>
           </div>
           <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Founded in May 2025, our dynamic leadership team brings extensive construction industry 
-            expertise to drive innovation in commercial and domestic building projects across the UK.
+            {t('management.subtitle')}
           </p>
         </motion.div>
 
@@ -140,7 +142,7 @@ const ManagementTeam = () => {
 
                 {/* Specialization */}
                 <div className="mb-6">
-                  <h4 className="font-bold text-light-text dark:text-dark-text mb-3 text-lg">Specialization</h4>
+                  <h4 className="font-bold text-light-text dark:text-dark-text mb-3 text-lg">{t('management.specialization')}</h4>
                   <p className="text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
                     {member.specialization}
                   </p>
@@ -148,7 +150,7 @@ const ManagementTeam = () => {
 
                 {/* Background */}
                 <div className="mb-6">
-                  <h4 className="font-bold text-light-text dark:text-dark-text mb-3 text-lg">Background</h4>
+                  <h4 className="font-bold text-light-text dark:text-dark-text mb-3 text-lg">{t('management.background')}</h4>
                   <p className="text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
                     {member.background}
                   </p>
@@ -158,7 +160,7 @@ const ManagementTeam = () => {
                 <div className="mb-8">
                   <h4 className="font-bold text-light-text dark:text-dark-text mb-4 text-lg flex items-center">
                     <Award className="w-5 h-5 mr-3 text-brawex-500" />
-                    Key Achievements
+                    {t('management.achievements')}
                   </h4>
                   <div className="space-y-3">
                     {member.achievements.map((achievement, achIndex) => (
@@ -180,7 +182,7 @@ const ManagementTeam = () => {
                     title={`Email ${member.name}`}
                   >
                     <Mail className="w-5 h-5 text-brawex-600 dark:text-brawex-400 group-hover/contact:scale-110 transition-transform" />
-                    <span className="text-sm font-medium text-brawex-600 dark:text-brawex-400">Email</span>
+                    <span className="text-sm font-medium text-brawex-600 dark:text-brawex-400">{t('management.email')}</span>
                   </a>
                   <a
                     href={member.linkedin}
@@ -188,7 +190,7 @@ const ManagementTeam = () => {
                     title={`${member.name} on LinkedIn`}
                   >
                     <Linkedin className="w-5 h-5 text-brawex-600 dark:text-brawex-400 group-hover/contact:scale-110 transition-transform" />
-                    <span className="text-sm font-medium text-brawex-600 dark:text-brawex-400">LinkedIn</span>
+                    <span className="text-sm font-medium text-brawex-600 dark:text-brawex-400">{t('management.linkedin')}</span>
                   </a>
                 </div>
               </div>
@@ -211,17 +213,16 @@ const ManagementTeam = () => {
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-light-text dark:text-dark-text">
-                  Partnership Excellence
+                  {t('management.partnership')}
                 </h3>
               </div>
               <p className="text-light-text-secondary dark:text-dark-text-secondary text-lg leading-relaxed mb-6">
-                Our founding directors combine complementary expertise in construction management 
-                and technical operations, ensuring comprehensive project delivery from inception to completion.
+                {t('management.partnershipDesc')}
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8">
                 <div className="text-center">
-                  <div className="text-brawex-600 dark:text-brawex-400 font-bold text-lg">British & Turkish</div>
-                  <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">Heritage</div>
+                  <div className="text-brawex-600 dark:text-brawex-400 font-bold text-lg">{t('management.heritage')}</div>
+                  <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">{t('management.background')}</div>
                 </div>
                 <div className="hidden md:block w-px h-12 bg-neutral-soft-200 dark:bg-white/10"></div>
                 <div className="text-center">

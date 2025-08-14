@@ -16,8 +16,10 @@ import {
 } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';
 import ThemeToggle from './ThemeToggle';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const companyInfo = {
@@ -30,21 +32,21 @@ const Footer = () => {
   };
 
   const services = [
-    'Commercial Building Construction',
-    'Domestic Building Construction', 
-    'Construction Installation Services',
-    'Specialised Construction Activities',
-    'Building Project Management',
-    'Construction Consultancy'
+    t('services.commercial'),
+    t('services.domestic'), 
+    t('services.installation'),
+    t('services.specialised'),
+    t('services.management'),
+    t('services.consultancy')
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Management Team', href: '#management' },
-    { name: 'Our Projects', href: '#projects' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Careers', href: '#careers' }
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.management'), href: '#management' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.contact'), href: '#contact' },
+    { name: t('nav.careers'), href: '#careers' }
   ];
 
   const socialLinks = [
@@ -55,10 +57,10 @@ const Footer = () => {
   ];
 
   const stats = [
-    { icon: Building2, number: '2025', label: 'Company Founded' },
-    { icon: Users, number: '2', label: 'Directors' },
-    { icon: Award, number: 'Multi', label: 'Construction Services' },
-    { icon: Target, number: 'London', label: 'Based in' }
+    { icon: Building2, number: '2025', label: t('footer.stats.founded') },
+    { icon: Users, number: '2', label: t('footer.stats.directors') },
+    { icon: Award, number: t('footer.stats.services'), label: t('footer.stats.servicesLabel') },
+    { icon: Target, number: t('footer.stats.location'), label: t('footer.stats.locationLabel') }
   ];
 
   const handleNavClick = (href) => {
@@ -135,9 +137,7 @@ const Footer = () => {
                 </div>
 
                 <p className="text-neutral-soft-700 dark:text-white/80 mb-6 leading-relaxed">
-                  A dynamic construction company founded in May 2025, specialising in commercial 
-                  and domestic building projects. We deliver high-quality construction services 
-                  and installation solutions across London and surrounding areas.
+                  {t('footer.description')}
                 </p>
 
                 {/* Contact Info */}
@@ -177,7 +177,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-neutral-soft-800 dark:text-white mb-6">Our Services</h3>
+                <h3 className="text-lg font-semibold text-neutral-soft-800 dark:text-white mb-6">{t('footer.ourServices')}</h3>
                 <ul className="space-y-2">
                   {services.map((service, index) => (
                     <li key={index}>
@@ -206,7 +206,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-neutral-soft-800 dark:text-white mb-6">Quick Links</h3>
+                <h3 className="text-lg font-semibold text-neutral-soft-800 dark:text-white mb-6">{t('footer.quickLinks')}</h3>
                 <ul className="space-y-2">
                   {quickLinks.map((link, index) => (
                     <li key={index}>
@@ -263,10 +263,10 @@ const Footer = () => {
 
               <div className="text-center md:text-right">
                 <p className="text-neutral-soft-600 dark:text-white/60 text-sm">
-                  © {currentYear} Brawex Limited. All rights reserved.
+                  © {currentYear} Brawex Limited. {t('footer.allRightsReserved')}
                 </p>
                 <p className="text-neutral-soft-500 dark:text-white/40 text-xs mt-1">
-                  Building excellence since 2025
+                  {t('footer.tagline', 'Building excellence since 2025')}
                 </p>
               </div>
             </div>

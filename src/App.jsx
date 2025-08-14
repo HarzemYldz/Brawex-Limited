@@ -2,40 +2,43 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Users, Award, ArrowRight, Shield, Zap, Clock } from 'lucide-react';
 import { ThemeProvider } from './config/theme.jsx';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ImageSlider from './components/ImageSlider';
 import ManagementTeam from './components/ManagementTeam';
 import ScrollToTop from './components/ScrollToTop';
 
-function App() {
+// Main App Content Component
+const AppContent = () => {
+  const { t } = useLanguage();
+  
   // Slider images data
   const sliderImages = [
     {
       src: '/img/full-icon.png',
-      alt: 'Brawex Limited - Commercial & Domestic Construction',
-      title: 'Commercial & Domestic Construction',
-      description: 'Founded in 2025, delivering high-quality building construction and installation services across London.'
+      alt: `Brawex Limited - ${t('slider.defaultTitle')}`,
+      title: t('slider.defaultTitle'),
+      description: t('slider.defaultDescription')
     },
     {
       src: '/img/favicon.png',
-      alt: 'Brawex Limited - Specialised Construction',
-      title: 'Specialised Construction Services',
-      description: 'Expert construction installation and specialised building activities for commercial and domestic projects.'
+      alt: `Brawex Limited - ${t('services.specialised')}`,
+      title: t('services.specialised'),
+      description: t('slider.defaultDescription')
     }
   ];
 
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-light-bg dark:bg-dark-bg gradient-bg noise-bg soft-overlay transition-colors duration-300">
+    <div className="min-h-screen bg-light-bg dark:bg-dark-bg gradient-bg noise-bg soft-overlay transition-colors duration-300">
         <Navbar />
         
         {/* Hero Section */}
-        <section id="home" className="relative pt-28 pb-20 overflow-hidden">
+        <section id="home" className="relative pt-20 sm:pt-22 md:pt-24 lg:pt-28 pb-20 overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-brawex-400/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-brawex-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute -top-40 -right-40 w-50 h-80 bg-brawex-400/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-40 -left-40 w-50 h-80 bg-brawex-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
@@ -48,11 +51,11 @@ function App() {
               >
                 <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
                   <span className="bg-gradient-to-r from-brawex-400 via-brawex-500 to-brawex-600 bg-clip-text text-transparent">
-                    Brawex Limited
+                    {t('hero.title')}
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-light-text-secondary dark:text-dark-text-secondary mb-8 max-w-3xl mx-auto">
-                  Modern construction and property development solutions in the United Kingdom
+                  {t('hero.subtitle')}
                 </p>
               </motion.div>
 
@@ -76,7 +79,7 @@ function App() {
                   }}
                   className="glass-button flex items-center justify-center space-x-2 bg-brawex-400/20 hover:bg-brawex-400/30 text-brawex-400 font-semibold group"
                 >
-                  <span>Explore Projects</span>
+                  <span>{t('hero.exploreProjects')}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
                 <button 
@@ -93,7 +96,7 @@ function App() {
                   }}
                   className="glass-button group"
                 >
-                  <span>Contact Us</span>
+                  <span>{t('hero.contactUs')}</span>
         </button>
               </motion.div>
             </div>
@@ -111,10 +114,10 @@ function App() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 bg-gradient-to-r from-brawex-400 to-brawex-600 bg-clip-text text-transparent">
-                Our Showcase
+                {t('nav.projects')}
               </h2>
               <p className="text-lg text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-                Discover our commitment to excellence through our featured projects and capabilities
+                {t('about.description')}
               </p>
             </motion.div>
             
@@ -140,10 +143,10 @@ function App() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-brawex-400 to-brawex-600 bg-clip-text text-transparent">
-                Why Choose Brawex?
+                {t('about.whyChoose')}
               </h2>
               <p className="text-lg text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-                We combine cutting-edge technology with traditional craftsmanship to deliver exceptional results
+                {t('about.whyChooseDesc')}
               </p>
             </motion.div>
 
@@ -151,42 +154,31 @@ function App() {
               {[
                 {
                   icon: Building2,
-                  title: "Modern Construction",
-                  description: "State-of-the-art building techniques and sustainable practices for tomorrow's infrastructure.",
-                  features: ["Sustainable Materials", "Smart Technology", "Energy Efficient"]
+                  key: 'modernConstruction'
                 },
                 {
                   icon: Users,
-                  title: "Expert Team",
-                  description: "Experienced professionals dedicated to delivering excellence in every project we undertake.",
-                  features: ["Certified Engineers", "Project Managers", "Safety Specialists"]
+                  key: 'expertTeam'
                 },
                 {
                   icon: Award,
-                  title: "Quality Assured",
-                  description: "Rigorous quality control and attention to detail ensure projects exceed expectations.",
-                  features: ["ISO Certified", "Quality Control", "Customer Satisfaction"]
+                  key: 'qualityAssured'
                 },
                 {
                   icon: Shield,
-                  title: "Safety First",
-                  description: "Comprehensive safety protocols and training ensure secure working environments.",
-                  features: ["Safety Training", "Risk Assessment", "Compliance"]
+                  key: 'safetyFirst'
                 },
                 {
                   icon: Zap,
-                  title: "Innovation",
-                  description: "Cutting-edge technology and innovative solutions for modern construction challenges.",
-                  features: ["3D Modeling", "Digital Planning", "Smart Solutions"]
+                  key: 'innovation'
                 },
                 {
                   icon: Clock,
-                  title: "Timely Delivery",
-                  description: "Efficient project management ensures on-time completion within budget constraints.",
-                  features: ["Project Scheduling", "Resource Planning", "Progress Tracking"]
+                  key: 'timelyDelivery'
                 }
               ].map((feature, index) => {
                 const Icon = feature.icon;
+                const featureData = t(`features.${feature.key}`, { returnObjects: true });
                 return (
                   <motion.div
                     key={index}
@@ -208,16 +200,16 @@ function App() {
                           <div className="absolute inset-0 bg-brawex-300/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <h3 className="text-xl font-semibold text-light-text dark:text-dark-text group-hover:text-brawex-600 dark:group-hover:text-brawex-300 transition-colors duration-300">
-                          {feature.title}
+                          {featureData.title}
                         </h3>
                       </div>
                       
                       <p className="text-light-text-secondary dark:text-dark-text-secondary mb-6 flex-grow">
-                        {feature.description}
+                        {featureData.description}
                       </p>
                       
                       <div className="space-y-3">
-                        {feature.features.map((item, itemIndex) => (
+                        {featureData.features?.map((item, itemIndex) => (
                           <div key={itemIndex} className="flex items-center text-sm group/item">
                             <div className="w-2 h-2 bg-gradient-to-r from-brawex-400 to-brawex-500 rounded-full mr-3 group-hover/item:scale-125 transition-transform duration-200 shadow-sm shadow-brawex-400/50" />
                             <span className="text-light-text-secondary dark:text-dark-text-secondary group-hover/item:text-brawex-600 dark:group-hover/item:text-brawex-300 transition-colors duration-200 font-medium">
@@ -245,21 +237,21 @@ function App() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-brawex-400 to-brawex-600 bg-clip-text text-transparent">
-                Our Projects
+                {t('projects.title')}
               </h2>
               <p className="text-lg text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-                Showcasing our commitment to excellence in construction and development
+                {t('projects.subtitle')}
               </p>
             </motion.div>
 
             <div className="glass-card text-center">
               <h3 className="text-2xl font-semibold mb-4 text-light-text dark:text-dark-text">
-                Coming Soon
+                {t('projects.comingSoon')}
               </h3>
               <p className="text-light-text-secondary dark:text-dark-text-secondary">
-                Our portfolio of exceptional projects will be showcased here soon.
+                {t('projects.comingSoonDesc')}
               </p>
-            </div>
+      </div>
           </div>
         </section>
 
@@ -274,18 +266,18 @@ function App() {
               className="text-center"
             >
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-brawex-400 to-brawex-600 bg-clip-text text-transparent">
-                Get In Touch
+                {t('contact.title')}
               </h2>
               <p className="text-lg text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto mb-8">
-                Ready to start your next construction project? Contact us today.
+                {t('contact.subtitle')}
               </p>
               
               <div className="glass-card max-w-md mx-auto">
                 <p className="text-light-text dark:text-dark-text mb-4">
-                  Contact information will be added here.
+                  {t('contact.info')}
                 </p>
                 <button className="glass-button bg-brawex-400/20 hover:bg-brawex-400/30 text-brawex-400 font-semibold w-full">
-                  Contact Us
+                  {t('contact.button')}
                 </button>
               </div>
             </motion.div>
@@ -300,7 +292,17 @@ function App() {
         
         {/* Scroll to Top Button */}
         <ScrollToTop />
-      </div>
+        </div>
+  );
+};
+
+// Main App Component with Providers
+function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

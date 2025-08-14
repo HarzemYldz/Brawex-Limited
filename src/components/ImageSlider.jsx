@@ -46,9 +46,9 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
   }
 
   return (
-    <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] overflow-hidden rounded-2xl group">
+    <div className="relative w-full h-80 sm:h-96 md:h-[420px] lg:h-[480px] overflow-hidden rounded-2xl group bg-gradient-to-br from-ocean-50 to-ocean-100 dark:from-slate-800 dark:to-slate-900">
       {/* Main image container */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -56,15 +56,18 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0"
+            className="absolute inset-0 flex items-center justify-center"
           >
             <img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))'
+              }}
             />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            {/* Soft overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
           </motion.div>
         </AnimatePresence>
 
@@ -141,26 +144,27 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
 
         {/* Image info overlay */}
         {images[currentIndex].title && (
-          <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 z-10">
+          <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-10">
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="
-                bg-slate-900/85 dark:bg-black/60
-                backdrop-blur-lg
+                bg-ocean-50/95 dark:bg-slate-900/95
+                backdrop-blur-xl
                 rounded-xl
-                p-4 md:p-6
-                border-2 border-slate-700/60 dark:border-white/20
-                shadow-xl shadow-slate-900/60
-                mb-12 md:mb-0
+                p-3 md:p-4
+                border border-ocean-200/60 dark:border-slate-700/60
+                shadow-lg shadow-ocean-300/20
+                mb-16 md:mb-2
+                mx-2 md:mx-4
               "
             >
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-2 drop-shadow-lg">
+              <h3 className="text-base md:text-lg font-semibold text-ocean-600 dark:text-white mb-1">
                 {images[currentIndex].title}
               </h3>
               {images[currentIndex].description && (
-                <p className="text-sm md:text-base text-white/95 drop-shadow-md leading-relaxed">
+                <p className="text-xs md:text-sm text-ocean-500 dark:text-white/90 leading-relaxed line-clamp-2">
                   {images[currentIndex].description}
                 </p>
               )}
@@ -171,7 +175,7 @@ const ImageSlider = ({ images, autoPlay = true, interval = 5000 }) => {
 
       {/* Dots indicator */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
           {images.map((_, index) => (
             <button
               key={index}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const ScrollToTop = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   // Show button when page is scrolled down
@@ -50,8 +52,8 @@ const ScrollToTop = () => {
             focus:outline-none focus:ring-2 focus:ring-brawex-400/50 focus:ring-offset-2
             group
           "
-          aria-label="Scroll to top"
-          title="Scroll to top"
+          aria-label={t('common.scrollToTop', 'Scroll to top')}
+          title={t('common.scrollToTop', 'Scroll to top')}
         >
           {/* Icon */}
           <ChevronUp className="

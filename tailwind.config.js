@@ -39,26 +39,41 @@ export default {
           800: '#292524',
           900: '#1c1917',
         },
-        // Light mode specific colors
-        'neutral-soft': {
-          50: '#fafbfc',
-          100: '#f4f6f8',
-          200: '#e8ebef',
-          300: '#dce1e7',
-          400: '#b8c5d1',
-          500: '#94a6b8',
-          600: '#64748b',
-          700: '#475569',
-          800: '#334155',
-          900: '#1e293b',
+        // New Light Mode Color Palette - Ocean Blue Theme
+        'ocean': {
+          50: '#f0feff',     // Çok açık mavi (96D2D9'dan türetilmiş)
+          100: '#e0fcff',    // Açık mavi
+          200: '#96D2D9',    // #96D2D9 - En açık
+          300: '#3FA8BF',    // #3FA8BF - Açık mavi
+          400: '#03738C',    // #03738C - Orta mavi
+          500: '#025373',    // #025373 - Koyu mavi
+          600: '#012840',    // #012840 - En koyu
+          700: '#011d2f',    // Daha koyu variant
+          800: '#001520',    // Çok koyu variant
+          900: '#000f15',    // Ultra koyu variant
         },
-        // Light mode colors - Soft & Comfortable
+        // Light mode specific colors - Updated
+        'neutral-soft': {
+          50: '#f0feff',     // Ocean temelli açık
+          100: '#e0fcff',    // Ocean temelli 
+          200: '#96D2D9',    // Direkt palette rengi
+          300: '#3FA8BF',    // Direkt palette rengi
+          400: '#03738C',    // Direkt palette rengi
+          500: '#025373',    // Direkt palette rengi
+          600: '#012840',    // Direkt palette rengi
+          700: '#011d2f',    // Koyu variant
+          800: '#001520',    // Çok koyu variant
+          900: '#000f15',    // Text için
+        },
+        // Light mode colors - Ocean Theme
         'light': {
-          'bg': '#f7f8fb',
-          'bg-secondary': '#f1f4f8',
-          'text': '#1e293b',
-          'text-secondary': '#475569',
-          'border': '#e1e8ed',
+          'bg': '#f0feff',        // Ocean-50 - Ana arka plan
+          'bg-secondary': '#e0fcff', // Ocean-100 - İkincil arka plan
+          'text': '#012840',      // Ocean-600 - Ana metin
+          'text-secondary': '#025373', // Ocean-500 - İkincil metin
+          'border': '#96D2D9',    // Ocean-200 - Kenarlıklar
+          'accent': '#3FA8BF',    // Ocean-300 - Vurgu rengi
+          'surface': '#96D2D9',   // Ocean-200 - Yüzeyler
         },
         // Dark mode colors
         'dark': {
@@ -68,6 +83,22 @@ export default {
           'text-secondary': '#94a3b8',
           'border': '#334155',
         }
+      },
+      spacing: {
+        '112': '28rem',   // 448px for very large logo widths
+        '128': '32rem',   // 512px
+        '144': '36rem',   // 576px
+        '160': '40rem',   // 640px for extra large logo widths
+      },
+      height: {
+        '15': '3.75rem',  // 60px for logo heights
+        '18': '4.5rem',   // 72px for logo heights
+        '20': '5rem',     // 80px for logo heights
+        '22': '5.5rem',   // 88px for logo heights
+        '24': '6rem',     // 96px for logo heights
+        '26': '6.5rem',   // 104px for logo heights
+        '30': '7.5rem',   // 120px for logo heights
+        '42': '10.5rem',  // 168px for large logo heights
       },
       backdropBlur: {
         'xs': '2px',
