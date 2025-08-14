@@ -1,0 +1,40 @@
+# Favicon Optimization for Google Search Console
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect favicon.ico to favicon.png
+    RewriteRule ^favicon\.ico$ /favicon.png [L,R=301]
+</IfModule>
+
+# Cache Control for Favicon
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Favicon caching - 1 year
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Browser config caching - 1 month
+    ExpiresByType application/xml "access plus 1 month"
+</IfModule>
+
+# Compression for favicon files
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE image/png
+    AddOutputFilterByType DEFLATE application/xml
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    # Allow favicon to be cached
+    <FilesMatch "favicon\.png$">
+        Header set Cache-Control "public, max-age=31536000"
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    
+    # Allow browserconfig.xml to be accessed
+    <FilesMatch "browserconfig\.xml$">
+        Header set Cache-Control "public, max-age=2592000"
+        Header set Content-Type "application/xml"
+    </FilesMatch>
+</IfModule>

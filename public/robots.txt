@@ -19,7 +19,9 @@ Disallow: /src/
 
 # Allow access to important files
 Allow: /img/
+Allow: /favicon.png
 Allow: /favicon.ico
+Allow: /browserconfig.xml
 Allow: /.well-known/
 
 # Sitemap location
