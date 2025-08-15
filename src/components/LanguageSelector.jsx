@@ -59,19 +59,19 @@ const LanguageSelector = ({ isMobile = false }) => {
         <button
           onClick={toggleDropdown}
           disabled={isLoading}
-          className={`
-            glass-button
-            w-10 h-10 sm:w-11 sm:h-11
-            flex items-center justify-center
-            rounded-lg
-            transition-all duration-300 ease-in-out
-            text-ocean-600 dark:text-slate-300
-            hover:text-ocean-500 dark:hover:text-brawex-400
-            hover:bg-ocean-100 dark:hover:bg-brawex-900/20
-            ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}
-            group
-            relative
-          `}
+                     className={`
+             w-10 h-8 sm:w-11 sm:h-11
+             flex items-center justify-center
+             rounded-lg
+             transition-all duration-300 ease-in-out
+             text-ocean-600 dark:text-slate-300
+             hover:text-ocean-500 dark:hover:text-brawex-400
+             hover:bg-ocean-100/60 dark:hover:bg-slate-800/40
+             active:scale-95
+             ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+             group
+             relative
+           `}
         >
           <div className="flex items-center space-x-0.5">
             <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-all duration-300 group-hover:scale-105" />
@@ -142,20 +142,20 @@ const LanguageSelector = ({ isMobile = false }) => {
       <button
         onClick={toggleDropdown}
         disabled={isLoading}
-        className={`
-          glass-button
-          w-8 h-8 sm:w-9 sm:h-9 md:w-auto md:h-auto
-          flex items-center justify-center md:justify-start
-          space-x-1 md:space-x-2
-          px-2 md:px-3 py-2 rounded-lg
-          text-xs md:text-sm font-medium
-          transition-all duration-300 ease-in-out
-          text-ocean-600 dark:text-slate-300
-          hover:text-ocean-500 dark:hover:text-brawex-400
-          hover:bg-ocean-100 dark:hover:bg-brawex-900/20
-          ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}
-          group
-        `}
+                 className={`
+           w-8 h-8 sm:w-9 sm:h-9 md:w-auto md:h-auto
+           flex items-center justify-center md:justify-start
+           space-x-1 md:space-x-2
+           px-2 md:px-3 py-2 rounded-lg
+           text-xs md:text-sm font-medium
+           transition-all duration-300 ease-in-out
+           text-ocean-600 dark:text-slate-300
+           hover:text-ocean-500 dark:hover:text-brawex-400
+           hover:bg-ocean-100/60 dark:hover:bg-slate-800/40
+           active:scale-95
+           ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+           group
+         `}
       >
         <Globe className="w-3 h-3 sm:w-4 sm:h-4 transition-all duration-300 group-hover:scale-105" />
         {(() => {
