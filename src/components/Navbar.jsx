@@ -202,10 +202,15 @@ const Navbar = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="
-                  glass-button
-                  w-8 h-8 sm:w-9 sm:h-9
+                  w-9 h-9 sm:w-10 sm:h-10
                   flex items-center justify-center
+                  rounded-lg
                   transition-all duration-300 ease-in-out
+                  text-ocean-600 dark:text-slate-300
+                  hover:text-ocean-500 dark:hover:text-brawex-400
+                  hover:bg-ocean-100/60 dark:hover:bg-slate-800/40
+                  active:scale-95
+                  cursor-pointer
                 "
               >
                 <AnimatePresence mode="wait">

@@ -60,7 +60,7 @@ const LanguageSelector = ({ isMobile = false }) => {
           onClick={toggleDropdown}
           disabled={isLoading}
                      className={`
-             w-10 h-8 sm:w-11 sm:h-11
+             w-9 h-9 sm:w-10 sm:h-10
              flex items-center justify-center
              rounded-lg
              transition-all duration-300 ease-in-out

@@ -12,7 +12,7 @@ const ThemeToggle = ({ className = '' }) => {
       onClick={toggleTheme}
       className={`
         relative 
-        w-12 h-6 sm:w-14 sm:h-7 md:w-16 md:h-8
+        w-9 h-9 sm:w-10 sm:h-10 md:w-16 md:h-8
         rounded-full
         transition-all duration-500 ease-in-out
         focus:outline-none focus:ring-2 focus:ring-brawex-400/50 focus:ring-offset-2
@@ -49,12 +49,12 @@ const ThemeToggle = ({ className = '' }) => {
       
       {/* Toggle slider */}
       <div className={`
-        absolute top-0.5 sm:top-1 w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full
+        absolute top-1 w-7 h-7 sm:w-8 sm:h-8 md:w-6 md:h-6 rounded-full
         transition-all duration-500 ease-in-out
         flex items-center justify-center
         ${isDark 
-          ? 'translate-x-6 sm:translate-x-7 md:translate-x-9 bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg shadow-slate-900/50' 
-          : 'translate-x-0.5 sm:translate-x-1 bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-400/50'
+          ? 'translate-x-1 sm:translate-x-1 md:translate-x-9 bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg shadow-slate-900/50' 
+          : 'translate-x-1 sm:translate-x-1 bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-400/50'
         }
         group-hover:scale-110
         border-2 ${isDark ? 'border-slate-600' : 'border-white'}
