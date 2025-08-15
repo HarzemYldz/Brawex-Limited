@@ -22,7 +22,7 @@ const AppContent = () => {
       description: t('slider.defaultDescription')
     },
     {
-      src: '/img/favicon.png',
+      src: '/favicon.png',
       alt: `Brawex Limited - ${t('services.specialised')}`,
       title: t('services.specialised'),
       description: t('slider.defaultDescription')

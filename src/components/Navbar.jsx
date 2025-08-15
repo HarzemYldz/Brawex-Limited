@@ -63,10 +63,10 @@ const Navbar = () => {
           }
         `}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
           <div className={`
             flex items-center justify-between transition-all duration-500
-            ${isScrolled ? 'h-18 sm:h-20 md:h-22 lg:h-24' : 'h-20 sm:h-22 md:h-24 lg:h-30'}
+            ${isScrolled ? 'h-16 sm:h-18 md:h-20 lg:h-22 xl:h-24' : 'h-18 sm:h-20 md:h-22 lg:h-24 xl:h-26'}
           `}>
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -76,7 +76,7 @@ const Navbar = () => {
                 e.preventDefault();
                 handleNavClick('#home');
               }}
-              className="flex items-center space-x-3 group"
+              className="flex items-center space-x-2 sm:space-x-3 group"
             >
               {/* Company Logo */}
               <div className="relative">
@@ -86,8 +86,8 @@ const Navbar = () => {
                   className={`
                     object-contain transition-all duration-500 ease-in-out
                     ${isScrolled 
-                      ? 'w-40 h-15 sm:w-45 sm:h-18 md:w-50 md:h-20 lg:w-45 lg:h-22' 
-                      : 'w-40 h-16 sm:w-52 sm:h-20 md:w-56 md:h-22 lg:w-55 lg:h-28'
+                      ? 'w-32 h-12 sm:w-36 sm:h-14 md:w-40 md:h-16 lg:w-44 lg:h-18 xl:w-48 xl:h-20' 
+                      : 'w-36 h-14 sm:w-40 sm:h-16 md:w-44 md:h-18 lg:w-48 lg:h-20 xl:w-52 xl:h-22'
                     }
                     group-hover:scale-105 group-hover:drop-shadow-lg
                   `}
@@ -97,9 +97,9 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          {/* Desktop Navigation - Responsive Breakpoints */}
+          <div className="hidden lg:block">
+            <div className="ml-6 xl:ml-8 flex items-baseline space-x-2 xl:space-x-4">
               {navigation.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -112,9 +112,9 @@ const Navbar = () => {
                     }}
                     className="
                       relative
-                      px-3 py-2 rounded-lg
-                      text-xs sm:text-sm font-medium
-                      flex items-center space-x-1.5
+                      px-2 xl:px-3 py-2 rounded-lg
+                      text-xs xl:text-sm font-medium
+                      flex items-center space-x-1 xl:space-x-1.5
                       transition-all duration-300 ease-in-out
                       text-ocean-600 dark:text-slate-300
                       hover:text-ocean-500 dark:hover:text-brawex-400
@@ -125,8 +125,8 @@ const Navbar = () => {
                     <div className="absolute inset-0 bg-ocean-100 dark:bg-brawex-900/20 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
                     
                     {/* Content */}
-                    <div className="relative z-10 flex items-center space-x-2">
-                      <Icon className="w-4 h-4 transition-all duration-300 group-hover:scale-105" />
+                    <div className="relative z-10 flex items-center space-x-1 xl:space-x-2">
+                      <Icon className="w-3 h-3 xl:w-4 xl:h-4 transition-all duration-300 group-hover:scale-105" />
                       <span className="font-medium">{item.name}</span>
                     </div>
                     
@@ -138,11 +138,59 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* Medium Screen Navigation - Compact */}
+          <div className="hidden md:block lg:hidden">
+            <div className="ml-4 flex items-baseline space-x-1">
+              {navigation.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className="
+                      relative
+                      px-2 py-2 rounded-lg
+                      text-xs font-medium
+                      flex items-center space-x-1
+                      transition-all duration-300 ease-in-out
+                      text-ocean-600 dark:text-slate-300
+                      hover:text-ocean-500 dark:hover:text-brawex-400
+                      group
+                    "
+                    title={item.name}
+                  >
+                    {/* Subtle background */}
+                    <div className="absolute inset-0 bg-ocean-100 dark:bg-brawex-900/20 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
+                    
+                    {/* Content - Icon only for medium screens */}
+                    <div className="relative z-10 flex items-center">
+                      <Icon className="w-4 h-4 transition-all duration-300 group-hover:scale-105" />
+                    </div>
+                    
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                      {item.name}
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Language Selector, Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
             {/* Desktop Language Selector */}
             <div className="hidden md:flex flex-shrink-0">
               <LanguageSelector />
+            </div>
+            
+            {/* Mobile Language Selector */}
+            <div className="md:hidden flex-shrink-0">
+              <LanguageSelector isMobile={true} />
             </div>
             
             <div className="flex-shrink-0">
@@ -155,7 +203,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="
                   glass-button
-                  w-9 h-9 sm:w-10 sm:h-10
+                  w-8 h-8 sm:w-9 sm:h-9
                   flex items-center justify-center
                   transition-all duration-300 ease-in-out
                 "
@@ -190,7 +238,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden"
             >
-              <div className="px-3 pt-3 pb-4 space-y-2 sm:px-4">
+              <div className="px-2 sm:px-3 pt-2 sm:pt-3 pb-3 sm:pb-4 space-y-1.5 sm:space-y-2">
                 {navigation.map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -207,9 +255,9 @@ const Navbar = () => {
                       className="
                         relative
                         w-full
-                        px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg
+                        px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-lg
                         text-left
-                        flex items-center space-x-3
+                        flex items-center space-x-2.5 sm:space-x-3
                         transition-all duration-300 ease-in-out
                         text-ocean-600 dark:text-slate-300
                         hover:text-ocean-500 dark:hover:text-brawex-400
@@ -222,21 +270,11 @@ const Navbar = () => {
                         shadow-sm hover:shadow-md
                       "
                     >
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:scale-105" />
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:scale-105 flex-shrink-0" />
                       <span className="font-medium text-sm sm:text-base">{item.name}</span>
                     </motion.a>
                   );
                 })}
-                
-                {/* Mobile Language Selector */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navigation.length * 0.1, duration: 0.3 }}
-                  className="border-t border-ocean-200/50 dark:border-slate-700/50 pt-4 mt-4"
-                >
-                  <LanguageSelector isMobile={true} />
-                </motion.div>
               </div>
             </motion.div>
           )}
