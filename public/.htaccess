@@ -4,6 +4,22 @@
     
     # Redirect favicon.ico to favicon.png
     RewriteRule ^favicon\.ico$ /favicon.png [L,R=301]
+    
+    # Redirect www to non-www (or vice versa - choose one)
+    RewriteCond %{HTTP_HOST} ^www\.brawex\.co\.uk$ [NC]
+    RewriteRule ^(.*)$ https://brawex.co.uk/$1 [L,R=301]
+    
+    # Redirect HTTP to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Block search query parameters that cause redirect loops
+    RewriteCond %{QUERY_STRING} ^s=.*$ [NC]
+    RewriteRule ^(.*)$ /$1? [L,R=301]
+    
+    # Block other problematic query parameters
+    RewriteCond %{QUERY_STRING} ^(utm_|fbclid|gclid|msclkid).*$ [NC]
+    RewriteRule ^(.*)$ /$1? [L,R=301]
 </IfModule>
 
 # Cache Control for Favicon

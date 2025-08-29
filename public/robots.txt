@@ -25,7 +25,7 @@ Allow: /browserconfig.xml
 Allow: /.well-known/
 
 # Sitemap location
-Sitemap: https://www.brawex.co.uk/sitemap.xml
+Sitemap: https://brawex.co.uk/sitemap.xml
 
 # Host directive
-Host: https://www.brawex.co.uk
+Host: https://brawex.co.uk
